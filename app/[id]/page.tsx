@@ -2,8 +2,7 @@
 import {links} from '@/constants/Data'
 import { useEffect } from 'react';
 
-const Page = ({params}) => {
-    
+const Page = ({params}:{params:{id:string}}) => {
     const name = params.id
   useEffect(() => {
     const link = links.find(item => item.keywords.includes(name.toLowerCase()));
@@ -13,7 +12,7 @@ const Page = ({params}) => {
     } else {
       window.location.href = '/';
     }
-  }, []);
+  }, [name]);
 
   return null; 
 };
